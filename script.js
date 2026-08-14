@@ -1,39 +1,39 @@
-// 1) Even or Odd
+// // 1) Even or Odd
 
 const oddEven = (num) =>{
-    if(num % 2==0 ){
-        return ("Even")
+    if(num % 2===0 ){
+        return ("Even");
     }
     else{
-        return ("Odd")
+        return ("Odd");
 
     };
 }
 
 let check = oddEven(7);
-console.log(check)
+console.log(check);
 
 // -----------------------------------------------------------
 
 // 2) Result Evaluator — Pass or Fail
 
 function passOrFail(studentMark){
-    if (studentMark>100){
-            console.log("INVALD MARKS")
-            return null
+    if (studentMark>100 || studentMark < 0 ) {
+            console.log("Invalid Marks");
+            return null;
         }
     
     else{
         if (studentMark>=50){
-            return "PASS"
+            return "Pass";
         }
         else{
-            return "FAIL"
+            return "Fail";
         }
     }
 }
 
-let evaluateResult = passOrFail(499);
+let evaluateResult = passOrFail(-1);
 console.log(evaluateResult);
 
 // ---------------------------------------------------------------
@@ -42,22 +42,19 @@ console.log(evaluateResult);
 
 const maxFinder = (num1,num2,num3) =>{
 
-    if (num1 > num2){
-        return (`${num1} is greater`)
+    if (num1 >= num2 && num1 >= num3){
+        return num1;
     }
-    else if (num2 > num3){
-        return (`${num2} is greater`)
+    else if (num2 >= num3 && num2 >=num1){
+        return num2;
     }
-    else if (num3 > num1){
-        return (`${num3} is greater`)
-    }
-    else{
-        return "please make sure three numbers"
+    else {
+        return num3;
     }
 
 }
 
-let findmax = maxFinder(9,9,8);
+let findmax = maxFinder(10,11,9);
 console.log(findmax);
 
 // -------------------------------------------------------------------
@@ -67,14 +64,14 @@ console.log(findmax);
 function accumulator(number){
     let total =0 ;
     while(number>0){
-        total+=number
-        number--
+        total+=number;
+        number--;
     
     }
-    return total
+    return total;
 }
 
-let sumToN = accumulator(10);
+let sumToN = accumulator(6);
 console.log(sumToN);
 
 // --------------------------------------------------------------
@@ -103,7 +100,7 @@ const digiCounter = (number) =>{
     }return count
     }
 
-let counter = digiCounter(1);
+let counter = digiCounter(10005);
 console.log(counter);
 
 // ----------------------------------------------------------------------
@@ -119,7 +116,7 @@ function numReverse(input){
 
         let degit = input % 10;             // get last value by modulo operator (12345 % 10 = 5)
         reverse = reverse* 10 + degit;      // updating reverse variable
-        input=Math.floor(input/10)          // remove last digit by floor division
+        input=Math.floor(input/10) ;         // remove last digit by floor division
 
     }
     return reverse;
@@ -136,9 +133,9 @@ const factorialOfNumber = (number) =>{
     let result = 1 ;                  // initial vaule 1 
     while (number>0){                 // condition 
         result = number*result;       // store the value (5*4*3*2*1) = 120
-        number-=1                     // dicrease the value
+        number-=1 ;                   // dicrease the value
     }
-    return result
+    return result;
 
 }
 let fact = factorialOfNumber(5);
@@ -151,23 +148,19 @@ console.log(fact);
 function primeOrNot(num){
 
     if (num <=1){
-        return "not prime"
+        return false;
     }
 
     let i = 2 ;          // start with 2 because 1 is possible factor
-    while (i<num){
-        if (num % i === 0){       //  if condition 0 is not prime
-            return "not prime";
-            i++ ;                 // increase num  to before value for check 
-
+    while (num > i){
+        if (num % i === 0){      
+            return false;      // if we get false immediate stop the function 
+                              
         }
-        else{
-            return "prime";       // prime = (only divide 1 and itself )
-        } 
-                           
+        i++ ;
     }
-    }
-   
+    return true;    
+}
 
 let result = primeOrNot(10);
 console.log(result);
@@ -176,22 +169,19 @@ console.log(result);
 
 // 10) Pattern Builder — Star Triangle 
 
-const pattern = () =>{
-    for (let i = 1; i <=5;i++){ // ouside loop like rows
-        let printer = ""
+const pattern = (num) =>{
+    for (let i = 1; i <=num;i++){ // ouside loop like rows
+        let printer = "";
 
         for(let j =1 ; j<=i; j++){  // inside loop like columns
-            printer += "* "          // string adding
+            printer += "* " ;         // string adding
 
         }
-
-        console.log(printer)
-
+        console.log(printer);
     }
 }
 
-let printPattern = pattern(5);
-console.log(printPattern);
+pattern(4);
 
 
 
